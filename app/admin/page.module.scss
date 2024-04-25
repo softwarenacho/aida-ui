@@ -1,0 +1,30 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top left, #886b9222, #ff999622, #606c8322),
+    linear-gradient(to top right, #04124322, #ff999622, #caa5b822) #f8edda22;
+  padding: 5rem;
+  border-radius: 25px;
+  .controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 25px;
+    label {
+      display: flex;
+      gap: 10px;
+      cursor: pointer;
+    }
+    button {
+      padding: 5px;
+    }
+    input,
+    select {
+      min-width: 250px;
+    }
+  }
+}

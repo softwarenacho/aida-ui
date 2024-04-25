@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  * {
+    transition: all 0.25s ease-in;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  h1 {
+    user-select: none;
+  }
+}
+
+body {
+  background: url('/images/background-2.jpg');
+  image-rendering: pixelated;
+  background-size: cover;
+  background-position: top;
+  background-color: #000000ff;
+}
+
+.socket-image-appear {
+  opacity: 0;
+}
+
+.socket-image-appear-active {
+  opacity: 1;
+  transition: opacity 2s ease-in;
+}
+
+.socket-image-enter {
+  opacity: 0;
+}
+
+.socket-image-enter-active {
+  opacity: 1;
+  transition: opacity 2s ease;
+}
+
+.socket-image-exit {
+  opacity: 1;
+}
+
+.socket-image-exit-active {
+  opacity: 0;
+  transition: opacity 2s ease-out;
+}
+
+.image-gallery {
+  width: 100%;
+}
+
+.image-gallery-thumbnail-image {
+  cursor: pointer;
+}
+
+.image-gallery-image {
+  max-height: calc(100vh - 50vh);
+  border-radius: 25px;
+  transition: border-radius 1ms;
+}
+
+@media only screen and (min-height: 680px) {
+  .image-gallery-image {
+    max-height: calc(100vh - 20rem);
+  }
+}
+
+.rs-play {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 0;
+  bottom: 0;
+}
