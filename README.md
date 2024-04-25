@@ -1,4 +1,4 @@
-![Background](/public/images/background.webp)
+![Background](/public/images/background.jpg)
 
 # **A.I.D.A. Dreams User Interface**
 

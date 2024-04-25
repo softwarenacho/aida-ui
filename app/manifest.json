@@ -1,8 +1,8 @@
 {
-  "name": "AIDA DREAMS",
+  "name": "AIDA dreams",
   "short_name": "AIDA",
-  "theme_color": "#ab81d0",
-  "background_color": "#ab81d0",
+  "theme_color": "#2D405E",
+  "background_color": "#2D405E",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",

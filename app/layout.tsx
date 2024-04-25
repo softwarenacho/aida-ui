@@ -32,9 +32,9 @@ export default function RootLayout({
           sizes='16x16'
           href='/icons/favicon-16x16.png'
         />
-        <link rel='prefetch' href='/images/background.webp' as='image' />
-        <meta name='msapplication-TileColor' content='#ab81d0' />
-        <meta name='theme-color' content='#ab81d0'></meta>
+        <link rel='prefetch' href='/images/background.jpg' as='image' />
+        <meta name='msapplication-TileColor' content='#2D405E' />
+        <meta name='theme-color' content='#2D405E'></meta>
         <meta name='description' content='AIDA Dreams User Interface' />
         <meta
           name='viewport'
