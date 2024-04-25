@@ -28,7 +28,6 @@ body {
 
 body {
   background: url('/images/background.jpg');
-  image-rendering: pixelated;
   background-size: cover;
   background-position: top;
   background-color: #000000ff;

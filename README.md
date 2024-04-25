@@ -117,7 +117,7 @@ Connects to the `web-socket/new-url` channel and toggles the `loading` status
     --header 'Content-Type: application/json' \
     --data '{
         "load": true,
-        "channel": "México"
+        "channel": "test"
     }'
   ```
 - **Response**
@@ -128,7 +128,7 @@ Connects to the `web-socket/new-url` channel and toggles the `loading` status
   ```
   {
     "data": true,
-    "channel": "México"
+    "channel": "test"
   }
   ```
 
@@ -152,7 +152,7 @@ Connects to the `web-socket/new-url` channel and publish a new message with the 
     --header 'Content-Type: application/json' \
     --data '{
         "url": "https://i.imgur.com/Fmdc9sy.jpeg",
-        "channel": "México"
+        "channel": "test"
     }'
   ```
 - **Response**
@@ -163,7 +163,7 @@ Connects to the `web-socket/new-url` channel and publish a new message with the 
   ```
   {
     "data": "https://i.imgur.com/Fmdc9sy.jpeg",
-    "channel": "México"
+    "channel": "test"
   }
   ```
 
@@ -188,7 +188,7 @@ Connects to the `web-socket/new-caption` channel and publish the received messag
     --header 'Content-Type: application/json' \
     --data '{
         "message": "Caption Example",
-        "channel": "México"
+        "channel": "test"
     }'
   ```
 - **Response**
@@ -196,7 +196,7 @@ Connects to the `web-socket/new-caption` channel and publish the received messag
   ```
   {
     "data": "Caption Example",
-    "channel": "México"
+    "channel": "test"
   }
   ```
 - **Response Status**
@@ -216,8 +216,4 @@ The deploy process starts automatically when a **PR** is merged in the `main` an
 
 ### Production environment:
 
-https://main.d3n29yggvw7ofe.amplifyapp.com
-
-### Dev environment:
-
-https://develop.d3n29yggvw7ofe.amplifyapp.com
+https://aida.nacho.software/
