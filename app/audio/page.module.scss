@@ -1,0 +1,86 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top left, #886b9222, #ff999622, #606c8322),
+    linear-gradient(to top right, #04124322, #ff999622, #caa5b822) #f8edda22;
+  padding: 5rem;
+  gap: 1rem;
+  border-radius: 25px;
+  .record {
+    font-size: 24px;
+    padding: 10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    cursor: pointer;
+    &:hover {
+      box-shadow: rgb(240 46 46 / 95%) 1px 1px, rgb(117 14 49 / 75%) 2px 2px,
+        rgb(234 18 54 / 55%) 3px 3px, rgb(223 62 35 / 25%) 4px 4px,
+        rgb(146 5 42 / 5%) 5px 5px;
+    }
+    &.isRecording {
+      box-shadow: rgb(240 46 46 / 55%) 1px 1px, rgb(117 14 49 / 45%) 2px 2px,
+        rgb(234 18 54 / 35%) 3px 3px, rgb(223 62 35 / 25%) 4px 4px,
+        rgb(146 5 42 / 15%) 5px 5px;
+      background: #cab6a7;
+      animation: pulse 2s ease-in-out infinite;
+    }
+  }
+  .controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 25px;
+    label {
+      display: flex;
+      gap: 10px;
+      cursor: pointer;
+    }
+    button {
+      padding: 5px;
+    }
+    input,
+    select {
+      min-width: 250px;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: rgb(240 46 46 / 95%) 1px 1px, rgb(117 14 49 / 75%) 2px -2px,
+      rgb(234 18 54 / 55%) 3px -3px, rgb(223 62 35 / 25%) 4px -4px,
+      rgb(146 5 42 / 5%) 5px -5px;
+  }
+  25% {
+    transform: scale(1.1);
+    box-shadow: rgb(240 46 46 / 95%) 1px 1px, rgb(117 14 49 / 75%) -2px -2px,
+      rgb(234 18 54 / 55%) -3px -3px, rgb(223 62 35 / 25%) -4px -4px,
+      rgb(146 5 42 / 5%) -5px -5px;
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: rgb(240 46 46 / 95%) 1px 1px, rgb(117 14 49 / 75%) 2px 2px,
+      rgb(234 18 54 / 55%) 3px 3px, rgb(223 62 35 / 25%) 4px 4px,
+      rgb(146 5 42 / 5%) 5px 5px;
+  }
+  75% {
+    transform: scale(1.1);
+    box-shadow: rgb(240 46 46 / 95%) 1px 1px, rgb(117 14 49 / 75%) -2px 2px,
+      rgb(234 18 54 / 55%) -3px 3px, rgb(223 62 35 / 25%) -4px 4px,
+      rgb(146 5 42 / 5%) -5px 5px;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: rgb(240 46 46 / 95%) 1px 1px, rgb(117 14 49 / 75%) 2px -2px,
+      rgb(234 18 54 / 55%) 3px -3px, rgb(223 62 35 / 25%) 4px -4px,
+      rgb(146 5 42 / 5%) 5px -5px;
+  }
+}

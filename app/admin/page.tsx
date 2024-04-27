@@ -3,7 +3,7 @@
 import { ChangeEvent, useState } from 'react';
 import styles from './page.module.scss';
 
-export default function Home() {
+export default function Admin() {
   const [load, setLoad] = useState<string>('start');
   const [image, setImage] = useState<string>('');
   const [caption, setCaption] = useState<string>('');
