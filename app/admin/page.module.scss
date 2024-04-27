@@ -5,8 +5,16 @@
   align-items: center;
   background: linear-gradient(to top left, #886b9222, #ff999622, #606c8322),
     linear-gradient(to top right, #04124322, #ff999622, #caa5b822) #f8edda22;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   padding: 5rem;
   border-radius: 25px;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1rem;
+  color: white;
+  text-shadow: 4px 4px 2px #ad859e, 0 0 1em #141e55, 0 0 1em #978d82;
+  line-height: 1.2;
   .controls {
     display: flex;
     flex-direction: column;
