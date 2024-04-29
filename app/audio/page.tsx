@@ -12,6 +12,33 @@ const Audio: React.FC = () => {
   const recorderRef = useRef<MediaRecorder | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
 
+  const [duration, setDuration] = useState<number>(0);
+  const [isRunning, setIsRunning] = useState<boolean>(false);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | undefined>(
+    undefined,
+  );
+
+  useEffect(() => {
+    if (isRunning) {
+      const id = setInterval(() => {
+        setDuration((prevDuration) => prevDuration + 1);
+      }, 1000);
+      setIntervalId(id);
+    } else {
+      intervalId && clearInterval(intervalId);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isRunning]);
+
+  const startTimer = (): void => {
+    setIsRunning(true);
+  };
+
+  const stopTimer = (): void => {
+    setIsRunning(false);
+    setDuration(0);
+  };
+
   const handleRecord = () => {
     if (!isRecording) {
       navigator.mediaDevices
@@ -43,11 +70,13 @@ const Audio: React.FC = () => {
 
             fakeFetchAndPlay(blob);
             recorder.stop();
+            stopTimer();
             recorder.stream.getTracks().forEach((track) => track.stop());
           };
 
           recorderRef.current = recorder;
           recorder.start();
+          startTimer();
           setIsRecording(true);
         })
         .catch((err) => console.error('Error recording audio: ', err));
@@ -62,9 +91,7 @@ const Audio: React.FC = () => {
   };
 
   const fakeFetchAndPlay = (blob: Blob) => {
-    // Simulate a fetch request
     setTimeout(() => {
-      // Simulate processing and playing the audio chunk
       if (!audioContextRef.current) {
         audioContextRef.current = new AudioContext();
       }
@@ -78,7 +105,6 @@ const Audio: React.FC = () => {
             reader.result as ArrayBuffer,
             (buffer) => {
               const source = audioContext.createBufferSource();
-              console.log('🚀 ~ setTimeout ~ source:', source);
               source.playbackRate.value = 2;
               source.buffer = buffer;
               source.connect(audioContext.destination);
@@ -88,20 +114,18 @@ const Audio: React.FC = () => {
         };
         reader.readAsArrayBuffer(blob);
       }
-    }, 1000); // Simulate a delay in fetching and processing the audio chunk
+    }, 1000);
   };
 
   useEffect(() => {
     if (recordedChunks.length > 0) {
       const fullBlob = new Blob(recordedChunks, { type: 'audio/wav' });
       const url = URL.createObjectURL(fullBlob);
-      console.log('🚀 ~ useEffect ~ url:', url);
       setAudioUrl(url);
     }
   }, [recordedChunks]);
 
   const handleSegmentClick = (start: number) => {
-    console.log('🚀 ~ handleSegmentClick ~ start:', start);
     if (!audioContextRef.current) {
       audioContextRef.current = new AudioContext();
     }
@@ -122,7 +146,6 @@ const Audio: React.FC = () => {
       const startTime = start / 1000;
       source.start(0, startTime);
 
-      // Stop the audio after its duration
       setTimeout(() => {
         source.stop();
       }, (recordedSegments[0][1] - start) * 1000);
@@ -140,6 +163,7 @@ const Audio: React.FC = () => {
 
   return (
     <div className={styles.main}>
+      {duration > 0 && <span>Duration: {duration}</span>}
       <button
         onClick={() => (isRecording ? handleStopRecording() : handleRecord())}
         name='record'
